@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Room rental - WeAreKeys</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0 d-flex justify-content-start">
+                <div class="d-inline-flex align-items-center">
+                    <a id="top-bar" class="pr-3" href="tel:+31 0600000" ><i class="fa fa-phone-alt mr-2"></i>+31 0600000</a>
+                    <span class="text-body">|</span>
+                    <a id="top-bar" class="px-3" href="mailto:info@WeAreKeys.com"><i class="fa fa-envelope mr-2"></i>info@WeAreKeys.com</a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-right d-flex justify-content-end">
+                <div id="social-icons" class="d-inline-flex align-items-center">
+                    <a class="text-body px-3 " href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-body px-3" href="https://www.twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-body px-3" href="https://www.linkedin.com" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-body px-3" href="https://www.instagram.com"target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-body px-3" href="https://www.youtube.com" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="position-relative px-lg-5" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 pl-3 pl-lg-5" style="background-color: rgb(33 37 41);">
+                <a href="index.html" class="navbar-brand px-5 ml-auto">
+                    <h1 class="text-uppercase text-primary mb-1">Luxury Room </h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end " id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="#welcome" class="nav-item nav-link">Welcome</a>
+                        <a href="#room" class="nav-item nav-link">Room</a>
+                        <a href="#discover" class="nav-item nav-link">Discover</a>
+                        <a href="#question" class="nav-item nav-link">Question</a>
+                        <a href="#feedback" class="nav-item nav-link">Feedback</a>
+                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+
+    <!-- Search Start -->
+    <div id="reservation" class="container-fluid bg-white pt-3 px-lg-5 bg-danger">
+        <div class="row mx-2 d-flex justify-content-center">
+            <div class="col-xl-2 col-lg-4 col-md-6 px-1 d-flex justify-content-center">
+                <label  id="checkInLabe;" class="date mb-3" >
+                    <input id="checkIn" type="date" class="form-control p-4" value="2024-03-21" min="2024-01-01" max="2025-01-31"/>
+                </label>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-1 d-flex justify-content-center">
+                <label id="checkOutLabel" class="date mb-3">
+                    <input id="checkOut" type="date" class="form-control p-4" value="2024-03-22" min="2024-03-21" max="2025-01-01"/>
+                </label>
+            </div>
+            
+            <div class="col-xl-2 col-lg-4 col-md-6 px-1 d-flex justify-content-center">
+                <button onclick="searchBtns()" id="searchBtn" class="btn btn-primary btn-block mb-3" type="submit" style="width:150px;height: 47px;">Search</button>
+            </div>
+        </div>
+    </div>
+    <!-- Search End -->
+    
+
+    <!-- Book Now Start -->
+    <div id="people" class="people hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <div class="d-flex justify-content-center flex-column align-items-center col">
+            <h2 class="text-light mb-2">Reserve Luxury Room</h2>
+            <div class="col-3">
+                <input id="peopleBook" type="text" class="form-control p-4" placeholder="Your Name" required="required">
+            </div>
+            <div class="col-3 mb-2 mt-1">
+                <label class="text-light" for="personBook">How many are you??</label>
+                <input id="personBook" type="number" class="form-control p-4" name="Tickets" min="1" max="4" value="1" >
+            </div>
+            
+            <div class="col-3">
+                <input id="emailPeopleBook" type="email" class="form-control p-4" placeholder="Your Email" required="required">
+            </div>
+            <button id="submitPeopleBook" type="button" class="btn_Submit btn btn-primary mt-3 py-1 px-2">Submit</button>
+            <button id="cancelPeopleBook" type="button" class="btn_Cancel btn btn-primary mt-3 py-1 px-2">Cancel</button>
+        </div>
+    </div>
+    <!-- Book End -->
+
+    <!-- succesful message reservation start -->
+    <div id="reservationMsg" class="book_message hide">
+        <h2>Thanks for the reservation</h2>
+        <i class="fa solid fa-circle-check"></i>
+        <p> A confirmation email has been sent to you.Please open it and check your reservation!</p>
+        <button id="reservationBtn" type="button" class="btn_dismiss">Thank you!</button>
+    </div>
+    <!-- succesful message reservation end -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0" style="margin-bottom: 90px;">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/carousel-1.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-3.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-4.jpg" style="filter:brightness(75%)"alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-5.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-6.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-7.jpg" style="filter:brightness(75%)" alt="Image">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark rounded-circle" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark rounded-circle" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- Welcome Start -->
+    <div id="welcome" class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center" >01.</span> Welcome To </h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <img class="w-50 mb-4" src="img/about.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero enim saepe iusto? Assumenda voluptates odio ducimus recusandae fuga possimus ipsum cupiditate temporibus in atque tempore, facere aut iure modi, esse voluptas rem perferendis ratione sunt quam asperiores officiis quia qui distinctio. Quas excepturi nulla, magni dolore rem voluptates consequatur, iste, reprehenderit veritatis in mollitia sunt libero dicta aspernatur animi perferendis corrupti! Officiis aliquam fuga eius distinctio, dolorem consectetur saepe sit deleniti asperiores quo cum cumque excepturi. Porro, delectus. Minima beatae cum quis inventore numquam ad officia sunt suscipit tempore. Soluta ipsum impedit corrupti ab aperiam culpa odio.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px; border-top-left-radius: 25%; border-bottom-right-radius: 25%;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4 rounded-circle" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-heart text-secondary"></i>
+                        </div>
+                        <h4 class=" text-light text-uppercase m-0">Sea view</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px; border-top-left-radius: 25%; border-bottom-right-radius: 25%;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4 rounded-circle " style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-bed text-secondary"></i>
+                        </div>
+                        <h4 class="text-light text-uppercase m-0">King size bed</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px; border-top-left-radius: 25%; border-bottom-right-radius: 25%;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4 rounded-circle" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-bath text-secondary"></i>
+                        </div>
+                        <h4 class=" text-light text-uppercase m-0">Bathroom with Jacuzzi bathtub</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Welcome End -->
+    
+
+    <!-- Room Appliances Start -->
+    <div id="room" class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">02.</span> Room Appliances</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-solid fa-wine-glass text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">01</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Complimentary tea & instant coffee making facilities</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item  d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-solid fa-wine-bottle text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">02</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Fully stocked mini bar</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-light fa-wifi text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">03</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">High-speed Wi-Fi internet access</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-thin fa-tv text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">04</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Smart 42’ hotel TV</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-thin fa-mug-hot text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">05</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Nespresso machine</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4 rounded-circle" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-brands fa-bluetooth text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">06</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Built in BT sound system</h4>
+                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, veniam officiis perspiciatis est nihil laboriosam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Room Appliances End -->
+
+
+    <!-- Next to you Start -->
+    <div id="discover" class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">03.</span> Next to you</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item mb-4">
+                        <img class="img-fluid mb-4" src="img/old-town.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Center Old Town</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>Center</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-shoe-prints text-primary mr-1"></i>
+                                <span>300m</span>
+                            </div>
+                        </div>
+                        <button  id="btnCenter"class="btn btn-primary px-3" >Book now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item active mb-4">
+                        <img class="img-fluid mb-4" src="img/exploring-the-tradition.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Traditional food</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>North</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-car text-primary mr-1"></i>
+                                <span>2km</span>
+                            </div>
+                        </div>
+                        <button id="btnFood" class="btn btn-primary px-3">Book now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item mb-4">
+                        <img class="img-fluid mb-4" src="img/beach-bar.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Beach bar</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>East</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-car text-primary mr-1"></i>
+                                <span>10km</span>
+                            </div>
+                        </div>
+                        <button id="btnBar" class="btn btn-primary px-3">Book now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item active mb-4">
+                        <img class="img-fluid mb-4" src="img/culture.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Museum Art</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>Center</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-shoe-prints text-primary mr-1"></i>
+                                <span>800m</span>
+                            </div>
+                        </div>
+                        <button id="btnMuseum" class="btn btn-primary px-3">Book now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item mb-4">
+                        <img class="img-fluid mb-4" src="img/walking.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Exploring the nature</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>South</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-car text-primary mr-1"></i>
+                                <span>12km</span>
+                            </div>
+                        </div>
+                        <button id="btnNature" class="btn btn-primary px-3">Book now</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="discover-item active mb-4">
+                        <img class="img-fluid mb-4" src="img/spa.jpg" alt="">
+                        <h4 class="text-uppercase mb-4">Spa relaxing</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-location-dot text-primary mr-1"></i>
+                                <span>Center</span>
+                            </div>
+                           
+                            <div class="px-2">
+                                <i class="fa fa-thin fa-shoe-prints text-primary mr-1"></i>
+                                <span>1km</span>
+                            </div>
+                        </div>
+                        <button id="btnSpa" class="btn btn-primary px-3">Book now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Next to you End -->
+    <!-- Book Now Start -->
+    <div id="book" class="book hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <div class="d-flex justify-content-center flex-column align-items-center col">
+            <h2 class="text-light mb-2">Book a ticket</h2>
+            <div class="col-3">
+                <input id="nameBook" type="text" class="form-control p-4" placeholder="Your Name" required="required">
+            </div>
+            <div class="col-3 mb-2 mt-1">
+                <label class="text-light" for="numberBook">Number of tickets you would like to buy:</label>
+                <input id="numberBook" type="number" class="form-control p-4" name="Tickets" min="1" max="10" value="1" >
+            </div>
+            
+            <div class="col-3">
+                <input id="emailBook" type="email" class="form-control p-4" placeholder="Your Email" required="required">
+            </div>
+            <button id="submitBook" type="button" class="btn_Submit btn btn-primary mt-3 py-1 px-2">Submit</button>
+            <button id="cancelBook" type="button" class="btn_Cancel btn btn-primary mt-3 py-1 px-2">Cancel</button>
+        </div>
+    </div>
+    <!-- Book End -->
+    <!-- success message start for booking -->
+        <div id="bookMsg" class="book_message hide">
+            <h2>Thanks for booking</h2>
+            <i class="fa solid fa-circle-check"></i>
+            <p> A confirmation email has been sent to you.Please open it and check your reservation.</p>
+            <button id="successBookBtn" type="button" class="btn_okay">Okay</button>
+        </div>
+    <!-- success message for booking end -->
+
+
+
+    <!-- Team Start -->
+    <div id="question" class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">04. </span>Have a question?</h1>
+            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Allen Adkins</h4>
+                        <p class="m-0">CEO</p>
+                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="mailto:customer@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-circle-info"></i></a>
+                            <a href="mailto:info@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-envelope"></i></a>
+                            <a href="tel:+060000000" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Louis Bowman</h4>
+                        <p class="m-0">General Manager</p>
+                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="mailto:customer@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-circle-info"></i></a>
+                            <a href="mailto:info@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-envelope"></i></a>
+                            <a href="tel:+060000000" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Suzanne Abbott</h4>
+                        <p class="m-0">Receptionist</p>
+                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="mailto:customer@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-circle-info"></i></a>
+                            <a href="mailto:info@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-envelope"></i></a>
+                            <a href="tel:+060000000" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Arnold Maxwell</h4>
+                        <p class="m-0">Receptionist</p>
+                        <div class="team-social position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="mailto:customer@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-circle-info"></i></a>
+                            <a href="mailto:info@WeAreKeys.com" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-envelope"></i></a>
+                            <a href="tel:+060000000" class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fa fa-thin fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Testimonial Start -->
+    <div id="feedback" class="container-fluid py-5">
+        <div class="container py-5">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">05. </span>Our Client's Say</h1>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4 rounded-circle" src="img/testimonial-1.jpg" alt="">
+                        <h1 class="display-2 text-white m-0"><i class="fa fa-quote-right"></i></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Amos Lambert</h4>
+                    <i class="mb-2">Mechanical Engineer</i>
+                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, accusantium.</p>
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4 rounded-circle"  src="img/testimonial-2.jpg" alt="">
+                        <h1 class="display-2 text-white m-0"><i class="fa fa-quote-right"></i></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Lucy Gibson</h4>
+                    <i class="mb-2">Hairdresser</i>
+                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, accusantium.</p>
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4 rounded-circle" src="img/testimonial-3.jpg" alt="">
+                        <h1 class="display-2 text-white m-0"><i class="fa fa-quote-right"></i></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Grant Blake</h4>
+                    <i class="mb-2">Professional Footballer</i>
+                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, accusantium.</p>
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4 rounded-circle" src="img/testimonial-4.jpg" alt="">
+                        <h1 class="display-2 text-white m-0"><i class="fa fa-quote-right"></i></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Ronnie Cortez</h4>
+                    <i class="mb-2">Actress</i>
+                    <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, accusantium.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Contact Start -->
+    <div id="contact" class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">06. </span>Contact Us</h1>
+            <div class="row">
+                <div class="col-lg-7 mb-2">
+                    <div class="contact-form bg-light mb-4" style="padding: 30px;">
+                        <form onsubmit="sendEmail(); reset(); return false;">
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input id="name" type="text" class="form-control p-4" placeholder="Your Name" required="required">
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input id="email" type="email" class="form-control p-4" placeholder="Your Email" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control p-4" placeholder="Subject" required="required">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" class="form-control py-3 px-4" rows="5" placeholder="Message" required="required"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-2">
+                    <div class="bg-secondary d-flex flex-column justify-content-around  px-5 mb-4" style="height: 400px;">
+                        <div class="d-flex mb-2">
+                            <i class="fa fa-2x fa-map-marker-alt text-primary flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h5 class="text-light">Hotel We Are Keys</h5>
+                                <p>Amsterdam, The Netherlands</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="fa fa-2x fa-thin fa-phone-flip text-primary flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h5 class="text-light">Any Question</h5>
+                                <a id="social-icons-contact"   href="tel:+310600000">+31 0600000</a>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="fa fa-2x fa-envelope-open text-primary flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h5 class="text-light">Customer Service</h5>
+                                <a id="social-icons-contact"  href="mailto:customer@WeAreKeys.com">customer@WeAreKeys.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Footer Start -->
+    <div class="form_container container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-light mb-4">Get In Touch</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>Amsterdam, The Netherlands</p>
+                <p class="mb-2"><a id="footer-details-touch" href="tel:+31 0600000"><i class="fa fa-phone-alt text-white mr-3"></i>+31 0600000</a></p>
+                <p><a id="footer-details-touch" href="mailto:info@WeAreKeys.com"><i class="fa fa-envelope text-white mr-3"></i>info@WeAreKeys.com </a></p>
+                <h6 class="text-uppercase text-white py-2">Follow Us</h6>
+                <div id="social-icons-footer"  class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="https://www.twiiter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-dark btn-lg-square" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-light mb-4">Luxury Room</h4>
+                <div id="footer-details-room" class="d-flex flex-column justify-content-start">
+                    <a class="text-light mb-2"  href="#reservation"><i class="fa fa-angle-right text-white mr-2"></i>Reservation</a>
+                    <a class="text-light mb-2" href="#room"><i class="fa fa-angle-right text-white mr-2"></i>Room</a>
+                    <a class="text-light mb-2" href="#discover"><i class="fa fa-angle-right text-white mr-2"></i>Discover</a>
+                    <a class="text-light mb-2" href="#question"><i class="fa fa-angle-right text-white mr-2"></i>Question?</a>
+                    <a class="text-light mb-2" href="#contact"><i class="fa fa-angle-right text-white mr-2"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 d-flex flex-column align-items-center">
+                <h4 class="text-uppercase text-light mb-4">Payment Method</h4>
+                <div class="row mx-n1 d-flex justify-content-center">
+                    <div class="col-4 px-1 mb-2">
+                        <img class="w-75" src="img/bunq.png" alt="">
+                    </div>
+                    <div class="col-4 px-1 mb-2">
+                        <img class="w-75" src="img/abn.png" alt="">
+                    </div>
+                    <div class="col-4 px-1 mb-2">
+                        <img class="w-75" src="img/paypal.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-light mb-4">Newsletter</h4>
+                <p class="mb-4">Because intelligence is always in style</p>
+                <p class="mb-4">Stay in the know with our newsletter.</p>
+                <div class="form_container w-100 mb-3">
+                        <form class="form-newsletter" action="#">
+                            <input type="email" id="email-control" class="form-control bg-dark border-dark" style="padding: 25px;" placeholder="Your Email">
+                            <div class="input-group-append">
+                                <button type="button" class="subscribe_btn btn btn-primary text-uppercase px-3 mt-2">Sign Up</button>
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- success message for contact start -->
+    <div class="success_message hide">
+        <h2>Thanks for subscribing</h2>
+        <img src="" alt="">
+        <p> A confirmation email has been sent to you.Please open it and click the button inside to confirm your subscription.</p>
+        <button type="button" class="btn_dismiss">Dismiss message</button>
+    </div>
+    <!-- success message for contact end -->
+    <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <p class="mb-2 text-center text-body">&copy; <a href="#">Anastasios Lavidas Room Rental Project</a>. All Rights Reserved.</p>			
+    
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
