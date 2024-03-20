@@ -117,25 +117,45 @@ click(function (event) {
 })(jQuery);
 
 
+var nameField;
+var emailField;
 
-//validation 
+function checkName(inputName){
+    if (inputName === ""){
+        document.getElementById('peopleBook').classList.add('error');
+        buttonFormReservation.classList.add("disabled");
+    }else{
+        document.getElementById('peopleBook').classList.remove('error');
+        buttonFormReservation.classList.remove("disabled");
+    }
+    nameField = inputName;
+    return nameField;
+}
 
-
-
-//Validate for email
-
-    // let email = document.getElementById('emailPeopleBook').value;
-    // let emailMsg = document.querySelector('.errorMessage');
-    // let emailRegex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
-    // let result = emailRegex.test(email);
+function checkEmail(inputEmail){
+    if (inputEmail === ""){
+        document.getElementById('emailPeopleBook').classList.add('error');
+        buttonFormReservation.classList.add("disabled");
+    }else{
+        document.getElementById('emailPeopleBook').classList.remove('error');
+        buttonFormReservation.classList.remove("disabled");
+    }
     
-    // if (result && emailMsg.textContent === ''){
-    //     console.log("hey")
-    // }else if (!result){
-    //     document.getElementById('emailPeopleBook').classList.add('error');
-    //     emailMsg.innerHTML = 'Error';
-    //     console.log(emailMsg);
-    // }
+    emailField = inputEmail;
+    return emailField;
+}
+let buttonFormReservation = document.getElementById('buttonReservation');
+
+if (nameField != "" && emailField != "" ){
+    buttonFormReservation.addEventListener('click', () => {
+        document.getElementById('people').classList.add('hide');
+        document.getElementById('reservationMsg').classList.remove('hide');
+    })
+}
+
+
+
+
 
 
 
@@ -171,7 +191,7 @@ function cancelButton(){
         document.getElementById('reservation').classList.remove('hide');
         peopleBook.classList.remove('error');
         emailPeople.classList.remove('error');
-        document.getElementById('submitPeopleBook').classList.remove('disabled')
+        document.getElementById('buttonReservation').classList.remove('disabled')
         peopleBook.value = '';
         personBook.value = "1"
         emailPeople.value = '';

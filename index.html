@@ -7,7 +7,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
@@ -15,14 +14,13 @@
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -110,25 +108,25 @@
     
 
     <!-- Book Now Start -->
-    <form  onsubmit="validation()" id="people" class="people hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
+    <form  id="people" class="people hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
         <div class="d-flex formDetails justify-content-center flex-column align-items-center col">
                 <h2 class="text-light mb-2 ">Reserve Luxury Room</h2>
                     <div class="col-3">
                         <label for="name">Name:</label>
-                        <input id="peopleBook" type="text" class="form-control p-4" placeholder="Your Name" required>
+                        <input id="peopleBook" oninput="checkName(this.value)" type="text" class="form-control p-4" placeholder="Your Name" required >
                         <div class="errorMessage"></div>
                     </div>
                     <div class="col-3 mb-2 mt-1">
-                        <label for="name">Name:</label>
-                        <input id="personBook" type="number" class="form-control p-4" name="Tickets" min="1" max="4" value="1">
+                        <label for="name">Guests:</label>
+                        <input id="personBook"  type="number" class="form-control p-4" name="Guests" min="1" max="4" value="1">
                     </div>
                     
                     <div class="col-3">
                         <label for="email">Email:</label>
-                        <input id="emailPeopleBook" type="text"  class="form-control p-4" placeholder="Your Email" required >
+                        <input id="emailPeopleBook" oninput="checkEmail(this.value)" type="text"  class="form-control p-4" placeholder="Your Email" required>
                         <div class="errorMessage"></div>
                     </div>
-                    <button id="submitPeopleBook" type="submit" class="btn_Submit   btn btn-primary mt-3 py-1 px-2">Submit</button>
+                    <button id="buttonReservation" type="button" class="btn_Submit disabled btn btn-primary mt-3 py-1 px-2">Submit</button>
                     <button id="cancelPeopleBook" onclick="cancelButton()" type="button" class="btn_Cancel  btn btn-primary mt-3 py-1 px-2">Cancel</button>
                       
             </div>
@@ -140,6 +138,14 @@
         <h2>Thanks for the reservation</h2>
         <i class="fa solid fa-circle-check"></i>
         <p> A confirmation email has been sent to you.Please open it and check your reservation!</p>
+        <button id="reservationBtn" onclick="refreshPage()" type="button" class="btn_dismiss">Thank you!</button>
+    </div>
+    <!-- succesful message reservation end -->
+    <!-- error message reservation start -->
+    <div id="errorMsg" class="error_message hide mt-2">
+        <h2>Sorry something went wrong!</h2>
+        <i class="fa solid fa-circle-xmark"></i>
+        <p> We have to figure out!</p>
         <button id="reservationBtn" onclick="refreshPage()" type="button" class="btn_dismiss">Thank you!</button>
     </div>
     <!-- succesful message reservation end -->
@@ -701,12 +707,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
+
+
+    <!-- Pictures Script -->
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+    <!-- Contact Form script -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

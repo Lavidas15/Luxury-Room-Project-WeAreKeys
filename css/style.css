@@ -419,9 +419,7 @@ button.subscribe_btn:active{
 #people.hide{
     display: none;
 }
-.btn_okay:active{
-    transform: scale(0.97);
-}
+
 .book_message{
     width:450px;
     padding:2rem;
@@ -468,7 +466,62 @@ button.subscribe_btn:active{
 .book_message.hide{
     display: none;
 }
-.btn_okay:active{
+.btn_dismiss:active{
+    transform: scale(0.97);
+}
+/* error */
+.error_message{
+    width:450px;
+    padding:2rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    background-color:white;
+    border-radius: 10px;
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.error_message h2{
+    font-size:1.5rem;
+    margin:1rem 0;
+    text-align: center;
+}
+.error_message i{
+    color:rgb(182, 28, 28);
+    font-size:4rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.error_message p{
+
+    line-height: 1.5;
+}
+.error_message #reservationBtn{
+    outline: none;
+    border: none;
+    margin:1rem 0;
+    background-color: rgb(182, 28, 28);
+    color:white;
+    font-size: 0.9rem;
+    padding: 0.9rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+}
+.error_message #reservationBtn:hover{
+    opacity:0.94;
+    background-color: rgb(182, 28, 28);
+
+}
+
+.error_message.hide{
+    display: none;
+}
+.btn_dismiss:active{
     transform: scale(0.97);
 }
 
