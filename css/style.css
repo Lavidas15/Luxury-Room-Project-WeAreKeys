@@ -540,3 +540,29 @@ button.subscribe_btn:active{
 #reservation.hide{
     display: none;
 }
+#reservationBtn:hover{
+background-color:#04eabc;
+}
+#reservationBtn:active{
+    transform: scale(0.98);
+}
+.disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
+.errorMessage{
+    margin-top: .3rem;
+    color:white;
+    font-size: .9rem;
+    font-weight: 600;
+    font-family: monospace;
+}
+.formDetails.success input {
+    border-color: #09c372;
+    outline: none;
+  }
+
+  .formDetails.error input {
+    border-color: #f2070e;
+  }

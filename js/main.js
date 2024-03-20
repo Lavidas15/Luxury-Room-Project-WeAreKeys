@@ -1,5 +1,8 @@
 
-
+// reload page
+function refreshPage(){
+    window.location.reload();
+} 
 // smoothly transition
 
 // Select all links with hashes
@@ -113,80 +116,65 @@ click(function (event) {
     
 })(jQuery);
 
-//Validation email
 
-function validate(){
-    let mail = document.getElementById('text').value;
 
-    var regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
+//validation 
 
-    if (regx.text(mail)){
-        alert("You have provided a valid email ID");
-    }
-    else{
-        alert("Sorry! Incorrect email ID"); 
-       }
-}
 
-// Check in Check Out
 
+//Validate for email
+
+    // let email = document.getElementById('emailPeopleBook').value;
+    // let emailMsg = document.querySelector('.errorMessage');
+    // let emailRegex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/
+    // let result = emailRegex.test(email);
+    
+    // if (result && emailMsg.textContent === ''){
+    //     console.log("hey")
+    // }else if (!result){
+    //     document.getElementById('emailPeopleBook').classList.add('error');
+    //     emailMsg.innerHTML = 'Error';
+    //     console.log(emailMsg);
+    // }
+
+
+
+
+
+// search dates
 function searchBtns(){
-    document.getElementById('reservation').classList.add('hide');
+    
     let firstDate = document.getElementById('checkIn').value;
     let secondDate = document.getElementById('checkOut').value;
-    let peopleBook = document.getElementById('peopleBook');
-    let emailPeopleBook = document.getElementById('emailPeopleBook');
-    let submitPeopleBook = document.getElementById('submitPeopleBook');
-    let cancelPeopleBook = document.getElementById('cancelPeopleBook');
-    
+
     
     if(firstDate <= secondDate){
-
+        document.getElementById('reservation').classList.add('hide');
         document.getElementById('people').classList.remove('hide');
         document.getElementById('header-carousel').classList.add("hide");
         document.getElementById('checkIn').classList.remove('error');
         document.getElementById('checkOut').classList.remove('error');
-
-        submitPeopleBook.addEventListener('click', () => {
-            if (peopleBook.value == "" && emailPeopleBook.value ==""){
-                peopleBook.classList.add('error');
-                emailPeopleBook.classList.add('error')
-            }
-            else if(peopleBook.value ==""){
-                peopleBook.classList.add('error');
-                emailPeopleBook.classList.remove('error');
-            }
-            else if(emailPeopleBook.value ==""){
-                emailPeopleBook.classList.add('error')
-                peopleBook.classList.remove('error');
-            }else{
-            // alert(`Great job ${document.getElementById('nameBook').value}! You will receive an email to ${document.getElementById('emailBook').value} with your ${numberBook.value} ticket(s)!`)
-            document.getElementById('reservationMsg').classList.remove('hide');
-            peopleBook.classList.remove('error');
-            emailPeopleBook.classList.remove('error');
-            document.getElementById('header-carousel').classList.remove('hide');
-            document.getElementById('people').classList.add('hide');
-            peopleBook.value = '';
-            personBook.value = "1"
-            emailPeopleBook.value = '';
-            }
-        })
-        cancelPeopleBook.addEventListener('click', () =>{
-            document.getElementById('header-carousel').classList.remove('hide');
-            document.getElementById('people').classList.add('hide');
-            document.getElementById('reservation').classList.remove('hide')
-            peopleBook.value = '';
-            personBook.value = "1"
-            emailPeopleBook.value = '';
-        });
-
-    }else {
+    }
+    else {
         document.getElementById('checkIn').classList.add('error');
         document.getElementById('checkOut').classList.add('error');
-        document.getElementById('people').classList.add('hide')
         document.getElementById('header-carousel').classList.remove('hide');
+        }
     }
+
+// cancel searching
+const emailPeople = document.getElementById('emailPeopleBook');
+function cancelButton(){
     
+        document.getElementById('header-carousel').classList.remove('hide');
+        document.getElementById('people').classList.add('hide');
+        document.getElementById('reservation').classList.remove('hide');
+        peopleBook.classList.remove('error');
+        emailPeople.classList.remove('error');
+        document.getElementById('submitPeopleBook').classList.remove('disabled')
+        peopleBook.value = '';
+        personBook.value = "1"
+        emailPeople.value = '';
     
 }
 
@@ -241,16 +229,17 @@ buttonSpa.addEventListener('click' , () => {
 })
 
 // Submit-Cancel buttons for Reservation
-submitBook.addEventListener('click', () => {
-    if (nameBook.value == "" && emailBook.value ==""){
+submitBook.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (nameBook.value == "" && emailBook.value == ""){
         nameBook.classList.add('error');
         emailBook.classList.add('error')
     }
-    else if(nameBook.value ==""){
+    else if(nameBook.value == "" && emailBook.value != ""){
         nameBook.classList.add('error');
         emailBook.classList.remove('error');
     }
-    else if(emailBook.value ==""){
+    else if( nameBook.value != "" && emailBook.value == ""){
         emailBook.classList.add('error')
         nameBook.classList.remove('error');
     }else{
@@ -265,7 +254,8 @@ submitBook.addEventListener('click', () => {
     }
 })
 
-cancelBook.addEventListener('click', () => {
+cancelBook.addEventListener('click', (e) => {
+    e.preventDefault();
     discover.classList.remove("hide");
     bookTicket.classList.add('hide');
     nameBook.value = '';
@@ -282,9 +272,9 @@ successBookBtn.addEventListener('click', () => {
 
 function sendEmail(){
     Email.send({
-        Host : "smtp.gmail.com",
-        Username : "1",
-        Password : "1",
+        Host : "smtp.elasticemail.com",
+        Username : "lavidasj@hotmail.com",
+        Password : "32F7D5F62A9C443643A9790645971CCFD2BE",
         To : 'anastasios.lavidas@gmail.com',
         From : document.getElementById('email').value,
         Subject : "New Contact Form from WeAreKeys Project",
@@ -292,7 +282,7 @@ function sendEmail(){
         + "<br> Email: " + document.getElementById('email').value
         + "<br> Message: " + document.getElementById("message").value
     }).then(
-      message => alert("Message sent succesfully!")
+        swal("Successful!", "Click the button!", "success")
     );
 }
 
@@ -305,7 +295,8 @@ let formContainer = document.querySelector(".form_container");
 let successEl = document.querySelector(".success_message");
 let inputEl = document.querySelector(".form-newsletter input");
 
-btnSubmit.addEventListener('click' ,() => {
+btnSubmit.addEventListener('click' ,(e) => {
+    e.preventDefault();
     if(inputEl.value != ""){
         formContainer.classList.add("hide");
         successEl.classList.remove("hide");
@@ -313,7 +304,8 @@ btnSubmit.addEventListener('click' ,() => {
         inputEl.classList.add("active");
     }
 })
-btnDismiss.addEventListener('click', () =>{
+btnDismiss.addEventListener('click', (e) =>{ 
+    e.preventDefault();
     formContainer.classList.remove("hide");
     successEl.classList.add('hide');
     inputEl.value = "";
