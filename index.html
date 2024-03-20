@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Room rental - WeAreKeys</title>
+    <title>Luxury Room - WeAreKeys</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Google Web Fonts -->
@@ -111,22 +111,21 @@
     <form  id="people" class="people hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
         <div class="d-flex formDetails justify-content-center flex-column align-items-center col">
                 <h2 class="text-light mb-2 ">Reserve Luxury Room</h2>
-                    <div class="col-3">
+                    <div class="col-5">
                         <label for="name">Name:</label>
-                        <input id="peopleBook" oninput="checkName(this.value)" type="text" class="form-control p-4" placeholder="Your Name" required >
-                        <div class="errorMessage"></div>
+                        <input id="peopleBook" oninput="checkName(this.value)" type="text" class="form-control p-4" placeholder="Your Name">
+
                     </div>
-                    <div class="col-3 mb-2 mt-1">
+                    <div class="col-5 mb-2 mt-1">
                         <label for="name">Guests:</label>
                         <input id="personBook"  type="number" class="form-control p-4" name="Guests" min="1" max="4" value="1">
                     </div>
                     
-                    <div class="col-3">
+                    <div class="col-5">
                         <label for="email">Email:</label>
-                        <input id="emailPeopleBook" oninput="checkEmail(this.value)" type="text"  class="form-control p-4" placeholder="Your Email" required>
-                        <div class="errorMessage"></div>
+                        <input id="emailPeopleBook" oninput="checkEmail(this.value)" type="text"  class="form-control p-4" placeholder="Your Email">
                     </div>
-                    <button id="buttonReservation" type="button" class="btn_Submit disabled btn btn-primary mt-3 py-1 px-2">Submit</button>
+                    <button id="buttonReservation" onclick="formButton()"  type="button" class="btn_Submit btn btn-primary mt-3 py-1 px-2">Submit</button>
                     <button id="cancelPeopleBook" onclick="cancelButton()" type="button" class="btn_Cancel  btn btn-primary mt-3 py-1 px-2">Cancel</button>
                       
             </div>
@@ -320,7 +319,7 @@
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5"><span class="display-1 text-primary text-center">03.</span> Next to you</h1>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-2">
+                <div class="col-lg-4 col-md-12 mb-2">
                     <div class="discover-item mb-4">
                         <img class="img-fluid mb-4" src="img/old-town.jpg" alt="">
                         <h4 class="text-uppercase mb-4">Center Old Town</h4>
@@ -436,16 +435,16 @@
     <div id="book" class="book hide container-fluid bg-dark py-4 px-sm-3 px-md-5">
         <div class="d-flex justify-content-center flex-column align-items-center col">
             <h2 class="text-light mb-2">Book a ticket</h2>
-            <div class="col-3">
-                <input id="nameBook" type="text" class="form-control p-4" placeholder="Your Name" required="required">
+            <div class="col-5">
+                <input id="nameBook" oninput="checkName(this.value)" type="text" class="form-control p-4" placeholder="Your Name" required="required">
             </div>
-            <div class="col-3 mb-2 mt-1">
+            <div class="col-5 mb-2 mt-1">
                 <label class="text-light" for="numberBook">Number of tickets you would like to buy:</label>
                 <input id="numberBook" type="number" class="form-control p-4" name="Tickets" min="1" max="10" value="1" >
             </div>
             
-            <div class="col-3">
-                <input id="emailBook" type="email" class="form-control p-4" placeholder="Your Email" required="required">
+            <div class="col-5">
+                <input id="emailBook" oninput="checkEmail(this.value)" type="email" class="form-control p-4" placeholder="Your Email" required="required">
             </div>
             <button id="submitBook" type="button" class="btn_Submit btn btn-primary mt-3 py-1 px-2">Submit</button>
             <button id="cancelBook" type="button" class="btn_Cancel btn btn-primary mt-3 py-1 px-2">Cancel</button>
@@ -672,7 +671,7 @@
                 <p class="mb-4">Stay in the know with our newsletter.</p>
                 <div class="form_container w-100 mb-3">
                         <form class="form-newsletter" action="#">
-                            <input type="email" id="email-control" class="form-control bg-dark border-dark" style="padding: 25px;" placeholder="Your Email">
+                            <input type="email" id="email-control" class="form-control bg-dark border-dark" style="padding: 25px; color:white" placeholder="Your Email">
                             <div class="input-group-append">
                                 <button type="button" class="subscribe_btn btn btn-primary text-uppercase px-3 mt-2">Sign Up</button>
                             </div>

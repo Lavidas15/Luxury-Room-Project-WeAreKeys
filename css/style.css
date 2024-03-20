@@ -357,7 +357,7 @@ button.btn:active{
 }
 /* carousel hide */
 #header-carousel.hide{
-    display:none;
+    display: none;
 }
 /* date error */
 #checkIn.error,#checkOut.error,#adults.error,#kids.error{
@@ -368,6 +368,8 @@ button.btn:active{
 #discover.hide{
     display: none;
 }
+
+
 .book.hide{
     display: none;
 }
@@ -431,6 +433,7 @@ button.subscribe_btn:active{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: all 2s linear;
 }
 .book_message h2{
     font-size:1.5rem;
@@ -460,13 +463,14 @@ button.subscribe_btn:active{
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    display: block;
 
 }
 
 .book_message.hide{
     display: none;
 }
-.btn_dismiss:active{
+.btn_okays:active{
     transform: scale(0.97);
 }
 /* error */
@@ -561,6 +565,7 @@ button.subscribe_btn:active{
 }
 #email-control.active{
     border:3px solid var(--error)!important;
+    color:white;
 }
 #email-control.active::placeholder{
     color: var(--error)!important;
@@ -619,3 +624,7 @@ background-color:#04eabc;
   .formDetails.error input {
     border-color: #f2070e;
   }
+
+input#email-control:active{
+color:white;
+}
